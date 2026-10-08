@@ -1,0 +1,65 @@
+{
+  "_how_to_edit": "Each entry is one tab, shown in this order. To remove a workflow, delete its entry. To add one, create a folder with its files and add an entry here.",
+  "workflows": [
+    {
+      "id": "bookings",
+      "title": "1 · Bookings forecast",
+      "subtitle": "This quarter and next",
+      "folder": "bookings",
+      "scripts": [
+        "bookings.js"
+      ],
+      "data": {
+        "pipeline": "pipeline.csv",
+        "calls": "sales-calls.csv",
+        "aop": "aop.csv",
+        "rates": "conversion-rates.csv",
+        "quality": "quality-adjustments.csv",
+        "settings": "settings.json"
+      }
+    },
+    {
+      "id": "long-range",
+      "title": "2 · Long-range plan",
+      "subtitle": "Base vs. upside, FY26–FY30",
+      "folder": "long-range",
+      "scripts": [
+        "model.js",
+        "long-range.js"
+      ],
+      "data": {
+        "assumptions": "assumptions.csv",
+        "capacityUS": "sales-capacity-us.csv",
+        "capacityUK": "sales-capacity-uk.csv",
+        "params": "sales-capacity-settings.json",
+        "opening": "fy25-opening.json",
+        "settings": "settings.json"
+      }
+    },
+    {
+      "id": "variance",
+      "title": "3 · Variance commentary",
+      "subtitle": "Flag, explain, approve",
+      "folder": "variance",
+      "scripts": [
+        "variance.js"
+      ],
+      "data": {
+        "lines": "data.csv",
+        "settings": "settings.json"
+      }
+    },
+    {
+      "id": "controls",
+      "title": "Controls",
+      "subtitle": "How outputs stay reliable",
+      "folder": "controls",
+      "scripts": [
+        "controls.js"
+      ],
+      "data": {
+        "content": "content.json"
+      }
+    }
+  ]
+}

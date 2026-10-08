@@ -1,33 +1,55 @@
-# FP&A AI Workbench
+# FP&A AI Workflow
 
-An interactive demo of how I use AI in financial planning and analysis. Open the live page and try it: move the thresholds, change the scenario assumptions, approve the commentary.
+**▶ Live demo: [byungjinahn.github.io/fpa-ai-workbench](https://byungjinahn.github.io/fpa-ai-workbench/)**
 
-**All data is synthetic.** The company (Fieldstone Cyber), the acquisition targets, and every figure are invented. No employer data is used.
+Built by Byungjin Ahn, finance leader (FP&A, forecasting and strategic finance).
 
-## What the demo shows
+Interactive examples of finance workflows redesigned with AI, with the controls that keep the output reliable. Each example runs in the browser: change thresholds, scenarios and toggles to see how it works and where people stay in control.
 
 | Workflow | What you can do | Where AI is used | Where people stay in control |
 |---|---|---|---|
-| Variance commentary | Change the materiality rule ($ and %) and watch items get flagged | The LLM classifies each variance driver and drafts commentary | An analyst edits and approves every item; the pack cannot be released until all are approved |
-| Scenario forecasting | Pick a plain-language scenario and adjust the assumptions | The LLM turns the scenario into driver assumptions and drafts the executive summary | The model math is deterministic; every analyst override is marked |
-| M&A screening | Change the rubric weights and override scores | The LLM scores targets 1–5 from filings, call transcripts, and press releases | The deal team sets the weights; analysts can override any score |
+| Bookings forecast | Compare the sales call, a statistical view and the finance forecast against AOP, for this quarter and next | The LLM reads CRM notes and call transcripts to flag deal risks, and drafts the forecast commentary | The analyst keeps or dismisses each flag, makes documented adjustments, and submits for CFO review |
+| Long-range plan | Switch Base / Upside and turn UK expansion on or off; see SaaS metrics, P&L, EBITDA and cash flow for FY26–FY30 | The LLM drafts the plan summary | FP&A owns the assumptions; model checks flag results that break basic rules |
+| Variance commentary | Change the materiality rule and watch items get flagged | The LLM classifies each variance driver and drafts commentary | An analyst edits and approves every item before the pack is released |
 
-## How the production version works
+The variance and bookings data are invented. The long-range plan uses a case-study operating model: the Base case matches the source Excel model exactly. In Upside, retention above the base case adds ARR on top of sales capacity (the workbook let it replace new ARR); set `nrr_uplift_adds_arr` to `false` in `long-range/settings.json` to use the workbook logic.
 
-1. **ERP / data warehouse:** source actuals, budget, and headcount
-2. **Power Query:** clean, map, convert currency, compute variances (rule-based, not AI)
-3. **Claude (enterprise license):** classify, draft, and propose assumptions
-4. **Analyst review:** validate against source, edit, approve
-5. **Power BI:** dashboards and approved commentary for leadership
+## How the site is organized
+
+```
+index.html            page shell (rarely changes)
+site.json             header text, "who does what" steps, results tiles, footer
+workflows.json        which tabs appear, in what order, and which files each one loads
+assets/               shared style and page code
+variance/             data.csv, settings.json, variance.js
+bookings/             pipeline.csv, sales-calls.csv, aop.csv, conversion-rates.csv,
+                      quality-adjustments.csv, settings.json, bookings.js
+long-range/           assumptions.csv, sales-capacity-us.csv, sales-capacity-uk.csv,
+                      sales-capacity-settings.json, fy25-opening.json, settings.json,
+                      model.js (calculations), long-range.js (page)
+controls/             content.json, controls.js
+```
+
+## How to update
+
+**Change numbers or text:** edit the CSV or JSON file in that workflow's folder, then upload it to the same folder on GitHub with the same name. CSV files open in Excel; save them as **CSV (comma delimited)**. Keep the column headers unchanged.
+
+- **Variance:** replace `variance/data.csv` with the new month's lines. The `ai_commentary` column holds the reviewed LLM draft for each line.
+- **Bookings:** replace `pipeline.csv` (one row per deal), `sales-calls.csv` and `aop.csv`. Refresh `conversion-rates.csv` each quarter from the last 8 quarters of history. Quarter names and page text are in `settings.json`.
+- **Long-range plan:** edit `assumptions.csv` (one row per assumption per scenario) and the sales-capacity files. A new scenario (for example `downside`) needs its rows in `assumptions.csv` and an entry in `settings.json`.
+
+**Remove or reorder a workflow:** edit `workflows.json`. The first entry is the tab that opens first.
+
+**Header, results and "Start here":** edit `site.json`. Add your LinkedIn or résumé link under `author.links` (links with an empty `url` are hidden), and a walkthrough video under `video_url`.
+
+**Add a workflow:** create a new folder with its data files and a script that calls `FPA.register("<id>", { render(panel, data) { … } })`, then add an entry to `workflows.json`.
+
+The page reads its files over the web, so opening `index.html` directly from your computer shows a message instead of the demo. Use the GitHub Pages link, or run `python -m http.server` in this folder and open `http://localhost:8000`.
 
 ## Controls
 
 - Nothing generated by AI is published without human approval.
-- Calculations happen in Power Query and Excel, not in the language model.
-- Enterprise AI only, with no training on company data; PII removed before processing.
-- AI-assisted content is tagged and prompt templates are version-controlled.
-- Accuracy is tracked monthly (missed and false-flagged variances).
-
-## About this page
-
-A single self-contained `index.html` file. In this demo, the AI commentary and narratives are sample drafts prepared in advance, with live figures filled in by the page; no model runs in the browser.
+- Calculations happen in Power Query and Excel (here, in `model.js`), not in the language model.
+- Enterprise AI only, with no training on company data; PII and customer names removed before processing.
+- AI-assisted content is tagged; overrides, dismissed flags and adjustments are logged with a reason.
+- Models are tied out to the source workbook, with automatic checks on the results.

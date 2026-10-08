@@ -1,0 +1,52 @@
+{
+  "title": "FP&A AI Workflow",
+  "author": {
+    "name": "Byungjin Ahn",
+    "role": "Finance leader · FP&A, forecasting and strategic finance",
+    "links": [
+      { "label": "LinkedIn", "url": "" },
+      { "label": "Résumé", "url": "" },
+      { "label": "GitHub", "url": "https://github.com/byungjinahn" }
+    ]
+  },
+  "eyebrow": "Working demo · AI-augmented FP&A",
+  "lede": "I redesigned close, forecasting and planning workflows around AI, with controls that keep the numbers trustworthy. This page rebuilds three of them so you can try them: a bookings forecast, a five-year plan, and variance commentary.",
+  "principles": [
+    "Every AI output is approved by a person before it goes out",
+    "Numbers are calculated in Excel and Power Query, never by the AI",
+    "Enterprise AI only: no company data in public AI tools"
+  ],
+  "notice": "<b>Example data only.</b> The bookings and variance data are invented. The five-year plan uses a case-study model. AI text on these pages is sample output prepared in advance; no AI runs in your browser.",
+  "video_url": "",
+  "start_title": "Start here: three things to try",
+  "start_note": "About two minutes.",
+  "tries": [
+    { "tab": "bookings", "title": "Reconcile the bookings forecast", "text": "Compare the sales call, the statistical view and the finance forecast against plan. Dismiss an AI risk flag and watch the forecast change." },
+    { "tab": "long-range", "title": "Turn UK expansion off", "text": "Switch between Base and Upside, then turn UK expansion off to see what the new region adds to ARR, EBITDA and cash." },
+    { "tab": "variance", "title": "Approve the month-end pack", "text": "Move the materiality threshold, then approve the AI-drafted commentary. The pack can't be released until every item is reviewed." }
+  ],
+  "results_title": "Results from my AI rollout (Q3 2025 to present)",
+  "results": [
+    { "big": "72%", "text": "less time on monthly variance analysis (2–3 days to 4–6 hours)" },
+    { "big": "Day 3", "text": "executive report delivery, down from day 8 of close" },
+    { "big": "8", "text": "scenarios per forecast cycle, up from 2–3; accuracy ±2.1% vs ±4.8%" },
+    { "big": "40 hrs", "text": "analyst time saved each month" }
+  ],
+  "apply": {
+    "title": "How I'd apply this at a channel-led security company",
+    "items": [
+      { "head": "Partner-level bookings forecast", "text": "Forecast new and expansion bookings by MSP partner and distributor, with AI reading partner notes for risk, reconciled to a finance forecast the CFO can commit to." },
+      { "head": "Retention and expansion by cohort", "text": "Track NRR and product attach (EDR, identity, SIEM) by partner cohort and region, with AI-drafted commentary on the drivers each month." },
+      { "head": "International expansion planning", "text": "Model new regions and distributors as toggles in the long-range plan, with headcount, ramp and payback visible to the board." },
+      { "head": "Controls fit for a security company", "text": "Enterprise AI only, no customer data in prompts, every output reviewed and logged. The AI rollout has to meet the same bar as the product." }
+    ]
+  },
+  "steps": [
+    { "name": "ERP / CRM / warehouse", "tag": "etl", "text": "GL actuals, budget, pipeline, headcount." },
+    { "name": "Power Query", "tag": "etl", "text": "Clean, map, compute variances and conversion statistics. Deterministic." },
+    { "name": "Claude", "tag": "ai", "text": "Classify drivers, flag deal risks from notes, draft commentary." },
+    { "name": "Analyst review", "tag": "human", "text": "Validate against source, adjust, approve. Nothing ships unapproved." },
+    { "name": "Power BI / Excel", "tag": "etl", "text": "Models and dashboards; approved commentary in tooltips." }
+  ],
+  "footer": "Built by Byungjin Ahn. Each workflow lives in its own folder with its own data files, so examples can be updated or replaced without touching the rest of the site. Production stack: Claude (enterprise), Power Query, Excel, Power BI."
+}
