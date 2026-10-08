@@ -1,0 +1,23 @@
+scenario,key,assumption,FY26,FY27,FY28,FY29,FY30
+base,grr,Software ARR gross retention (GRR),0.95,0.95,0.95,0.95,0.95
+base,nrr,Software ARR net retention (NRR),1.05,1.05,1.05,1.05,1.05
+base,volume_growth,Volume ARR YoY growth,0.6,0.4,0.3,0.25,0.2
+base,ps_pct,PS revenue as % of subscription revenue,0.03,0.0275,0.025,0.025,0.025
+base,subs_gm,Subscription gross margin,0.8511164480026719,0.8511164480026719,0.85,0.8466,0.8466
+base,volume_gm,Volume gross margin,0.7812483171021548,0.7812483171021548,0.7712483171021548,0.7612483171021548,0.7512483171021548
+base,ps_gm,PS gross margin,-0.7,-0.5,-0.3,-0.2,0
+base,rnd_pct,R&D opex as % of revenue,0.234,0.23240000000000002,0.23490000000000003,0.23460000000000003,0.23960000000000004
+base,ga_pct,G&A opex as % of revenue,0.10766550851539773,0.113,0.114,0.114,0.114
+base,dso,DSO (days),47.56098908125888,47.56098908125888,48.56098908125888,50.56098908125888,52.56098908125888
+base,dpo,DPO (days),50,48,46,44,42
+upside,grr,Software ARR gross retention (GRR),0.95,0.95,0.95,0.95,0.95
+upside,nrr,Software ARR net retention (NRR),1.05,1.08,1.12,1.1600000000000001,1.2000000000000002
+upside,volume_growth,Volume ARR YoY growth,0.63,0.48,0.38,0.28,0.23
+upside,ps_pct,PS revenue as % of subscription revenue,0.03,0.03,0.03,0.03,0.03
+upside,subs_gm,Subscription gross margin,0.8511164480026719,0.8511164480026719,0.85,0.8466,0.8466
+upside,volume_gm,Volume gross margin,0.7812483171021548,0.7812483171021548,0.7712483171021548,0.7612483171021548,0.7512483171021548
+upside,ps_gm,PS gross margin,-0.7,-0.5,-0.3,-0.2,0
+upside,rnd_pct,R&D opex as % of revenue,0.234,0.23240000000000002,0.23490000000000003,0.23460000000000003,0.23960000000000004
+upside,ga_pct,G&A opex as % of revenue,0.10766550851539773,0.113,0.114,0.114,0.114
+upside,dso,DSO (days),47.56098908125888,47.56098908125888,48.56098908125888,50.56098908125888,52.56098908125888
+upside,dpo,DPO (days),50,48,46,44,42

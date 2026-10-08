@@ -1,0 +1,65 @@
+{
+ "_note": "FY25 actuals and fixed model parameters, taken from CaseStudy_BAv10.xlsx. $ in thousands.",
+ "fiscal_year": "FY25",
+ "software_arr_us": 200467.34901454148,
+ "volume_arr": 14962.646250827223,
+ "sales_hc_us": 231,
+ "marketing_hc_us": 50,
+ "ae_hc_us": 104,
+ "revenue": 202157.27899269617,
+ "cogs_lines": {
+  "subs": {
+   "infra_hosting": 8986.983376422282,
+   "support_comp": 8475.72023314677,
+   "support_noncomp": 1442.689215973279,
+   "software": 6462.5746023702,
+   "other": 1870.0114991953499
+  },
+  "ps": {
+   "comp": 13899.12292075507,
+   "noncomp": 1889.3710223861422
+  }
+ },
+ "opex": {
+  "sm_total": 75980.17893624879,
+  "sm_noncomp": 24526.74177628578,
+  "rnd_total": 49427.38655371453,
+  "rnd_comp": 34846.17361223672,
+  "rnd_noncomp": 14581.21294147781,
+  "ga_total": 30325.407382547804,
+  "ga_comp": 11972.301539835484,
+  "ga_noncomp": 18353.10584271232,
+  "functional_comp_total": 98271.91231203522
+ },
+ "comp_cost_total": 120646.75546593705,
+ "noncomp_cost_total": 80876.15799245678,
+ "balance_sheet": {
+  "cash": 10529.76920077128,
+  "accounts_receivable": 28366.636797199688,
+  "prepaid": 4440.23910989081,
+  "other_current_assets": 18015.211542690908,
+  "accounts_payable": 7999.21886650817,
+  "deferred_revenue": 30075.537357047142,
+  "accrued_expenses": 1577.00552808676,
+  "accrued_payroll": 7521.454471522525,
+  "other_current_liabilities": 8982.153351143963,
+  "other_lt_assets": 25362.15003700031,
+  "other_lt_liabilities": 2880.908620982685,
+  "other_lt_liabilities_prior": 3375.882861863044,
+  "term_debt": 300000.00002
+ },
+ "cash_items": {
+  "interest_expense": 27150.86234702178,
+  "interest_income": -4.6233870696,
+  "ops_fee": 1033.58609,
+  "other_expense": 3250.126253491556,
+  "bad_debt_pct_rev": 0.01,
+  "tax_pct_rev": 0.006931344495917812,
+  "capex_first_year": 677.25,
+  "accrued_expense_days": 15,
+  "accrued_payroll_days": 21,
+  "other_current_liab_pct_rev": 0.02,
+  "other_lt_assets_step": -0.005,
+  "holdback_release_first_year": 92.306
+ }
+}

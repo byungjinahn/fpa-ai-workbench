@@ -1,0 +1,8 @@
+attribute,bucket,from,to,multiplier
+days_in_stage,0–30 days,0,30,1.05
+days_in_stage,31–60 days,31,60,1.00
+days_in_stage,61–90 days,61,90,0.85
+days_in_stage,91+ days,91,9999,0.70
+close_date_pushes,No pushes,0,0,1.00
+close_date_pushes,1 push,1,1,0.85
+close_date_pushes,2+ pushes,2,99,0.65

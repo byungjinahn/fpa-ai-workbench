@@ -1,0 +1,8 @@
+{
+  "title": "September close: budget vs. actual",
+  "description": "Fieldstone Cyber (fictional), a SaaS security company selling through MSPs. Power Query computes the variances; the LLM ranks and classifies the material ones and drafts commentary; analysts approve before anything is released.",
+  "units": "$K",
+  "dollar_threshold_k": 50,
+  "percent_threshold": 10,
+  "revenue_sections": ["Revenue"]
+}

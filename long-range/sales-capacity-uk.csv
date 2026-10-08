@@ -1,0 +1,7 @@
+key,item,FY26,FY27,FY28,FY29,FY30
+rvp,Regional VP (heads),1,1,1,1,1
+ae_enterprise,AE Enterprise (heads),2,4,6,8,10
+ae_midmarket,AE Mid-Market (heads),2,4,6,8,10
+channel,Channel manager (heads),1,1,1,1,1
+marketing,Marketing (heads),1,1,2,3,4
+quota_attainment,Average quota attainment,0.6,0.7,0.7999999999999999,0.8999999999999999,0.8999999999999999

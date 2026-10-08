@@ -1,0 +1,52 @@
+{
+ "us": {
+  "sales_hc_growth": 0.05,
+  "ae_share_of_sales": 0.45,
+  "ae_split": {
+   "enterprise": 0.5,
+   "midmarket": 0.5
+  },
+  "quota": {
+   "enterprise": 1200,
+   "midmarket": 800
+  },
+  "ote": {
+   "enterprise": 260,
+   "midmarket": 190,
+   "support": 178,
+   "customer_success": 140,
+   "marketing": 160
+  },
+  "arr_per_csm": 7000,
+  "marketing_hc_growth": 0.05,
+  "non_labor_pct_of_comp": 0.45,
+  "hire_year_ramp": 0.5
+ },
+ "uk": {
+  "quota": {
+   "enterprise": 1200,
+   "midmarket": 800
+  },
+  "ae_split": {
+   "enterprise": 0.5,
+   "midmarket": 0.5
+  },
+  "ote": {
+   "rvp": 320,
+   "enterprise": 260,
+   "midmarket": 190,
+   "sdr": 110,
+   "se": 190,
+   "channel": 220,
+   "customer_success": 140,
+   "marketing": 160
+  },
+  "sdr_per_ae": 0.5,
+  "se_per_ae": 0.25,
+  "arr_per_csm": 7000,
+  "non_labor_pct_of_comp": 0.5,
+  "hire_year_ramp": 0.5,
+  "first_year_grr": 0.95,
+  "first_year_nrr": 1.05
+ }
+}
