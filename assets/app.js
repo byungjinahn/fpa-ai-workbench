@@ -47,7 +47,7 @@
   }
   function loadScript(src) {
     return new Promise((ok, fail) => {
-      const s = document.createElement("script"); s.src = src; s.onload = ok;
+      const s = document.createElement("script"); s.src = src + (src.includes("?") ? "&" : "?") + "v=" + Date.now(); s.onload = ok;
       s.onerror = () => fail(new Error(`Could not load ${src}.`)); document.body.appendChild(s);
     });
   }
