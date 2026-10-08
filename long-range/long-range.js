@@ -21,7 +21,7 @@ FPA.register("long-range", {
     <div class="grid2 wl">
       <div class="box">
         <div class="box-head"><div class="left"><h3>Ending ARR by source</h3><span class="tag etl">Model</span></div>
-          <div class="legend"><span><i class="sq" style="background:var(--accent)"></i>US software</span><span><i class="sq" style="background:var(--ai)"></i>UK software</span><span><i class="sq" style="background:var(--etl)"></i>Volume-based</span></div></div>
+          <div class="legend"><span><i class="sq" style="background:var(--accent)"></i>US software</span><span><i class="sq" style="background:var(--ai)"></i>EMEA software</span><span><i class="sq" style="background:var(--etl)"></i>Volume-based</span></div></div>
         <div data-o="chart"></div>
       </div>
       <div class="box">
@@ -43,7 +43,7 @@ FPA.register("long-range", {
       <div class="checks" data-o="checks"></div>
     </div>
     <details class="box more">
-      <summary>Show assumptions and the UK sales team</summary>
+      <summary>Show assumptions and the EMEA sales team</summary>
       <div class="box-head"><div class="left"><h3>Assumptions</h3><span class="tag human">Set by FP&amp;A</span></div><span class="muted" style="font-size:13px">From assumptions.csv</span></div>
       <div class="tscroll"><table class="fin" data-o="assm"></table></div>
       <p class="muted" style="font-size:12.5px;margin-top:8px">${esc(S.sm_note)} Values marked <span class="chg">▲▼</span> differ from Base.</p>
@@ -86,7 +86,7 @@ FPA.register("long-range", {
         ["Subscription revenue", "subs_rev", m, "sub"], ["Volume-based revenue", "volume_rev", m, "sub"], ["Professional services", "ps_rev", m, "sub"],
         ["Total revenue", "revenue", m, "tot"], ["Growth", "rev_growth", P, "sub"],
         ["Gross profit", "gross_profit", m], ["Gross margin", "gm", P, "sub"],
-        ["S&M", "sm", m], ["of which UK", "sm_uk", m, "sub"], ["R&D", "rnd", m], ["G&A", "ga", m],
+        ["S&M", "sm", m], ["of which EMEA", "sm_uk", m, "sub"], ["R&D", "rnd", m], ["G&A", "ga", m],
         ["EBITDA", "ebitda", m, "tot"], ["EBITDA margin", "ebitda_margin", P, "sub"]], r);
       o("saas").innerHTML = tbl([
         ["Beginning software ARR", "begin_sw_arr", m], ["New", "new_arr", m, "sub"], ["Expansion", "expansion_arr", m, "sub"], ["Churn", "churn_arr", m, "sub"],
@@ -103,8 +103,8 @@ FPA.register("long-range", {
       o("assm").innerHTML = `<thead><tr><th>${esc(S.scenarios.find((s) => s.key === st.sc).name)} assumption</th>${Y.map((y) => `<th class="r">${y}</th>`).join("")}</tr></thead><tbody>${data.assumptions.filter((x) => x.scenario.toLowerCase() === st.sc).map((row) =>
         `<tr><td class="lbl">${esc(row.assumption)}</td>${A[row.key].map((v, j) => { const d = v - B[row.key][j]; return `<td class="r num">${fmtA(row.key, v)}${Math.abs(d) > 1e-9 ? `<span class="chg">${d > 0 ? "▲" : "▼"}</span>` : ""}</td>`; }).join("")}</tr>`).join("")}</tbody>`;
       const U = inp.capacityUK;
-      o("ukcap").innerHTML = st.uk ? `<h3 style="margin-bottom:8px">UK sales team (from sales-capacity-uk.csv)</h3><div class="tscroll"><table class="fin"><thead><tr><th></th>${Y.map((y) => `<th class="r">${y}</th>`).join("")}</tr></thead><tbody>${data.capacityUK.map((row) =>
-        `<tr><td class="lbl">${esc(row.item)}</td>${U[row.key].map((v) => `<td class="r num">${row.key === "quota_attainment" ? pct(v, 0) : v}</td>`).join("")}</tr>`).join("")}<tr><td class="lbl">UK ending ARR</td>${r.uk_arr.map((v) => `<td class="r num">${m(v)}</td>`).join("")}</tr></tbody></table></div>` : `<p class="muted" style="font-size:13px">UK expansion is off: no UK headcount, ARR or S&amp;M cost.</p>`;
+      o("ukcap").innerHTML = st.uk ? `<h3 style="margin-bottom:8px">EMEA sales team</h3><div class="tscroll"><table class="fin"><thead><tr><th></th>${Y.map((y) => `<th class="r">${y}</th>`).join("")}</tr></thead><tbody>${data.capacityUK.map((row) =>
+        `<tr><td class="lbl">${esc(row.item)}</td>${U[row.key].map((v) => `<td class="r num">${row.key === "quota_attainment" ? pct(v, 0) : v}</td>`).join("")}</tr>`).join("")}<tr><td class="lbl">EMEA ending ARR</td>${r.uk_arr.map((v) => `<td class="r num">${m(v)}</td>`).join("")}</tr></tbody></table></div>` : `<p class="muted" style="font-size:13px">EMEA expansion is off: no EMEA headcount, ARR or S&amp;M cost.</p>`;
 
       // checks
       const negNew = Y.filter((_, j) => r.new_arr[j] < 0), lowCash = Y.filter((_, j) => r.cash[j] < 0), lowLtv = Y.filter((_, j) => r.ltv_cac[j] < 3);
@@ -122,9 +122,9 @@ FPA.register("long-range", {
       const cagr = Math.pow(r.total_arr[4] / r.total_arr[0], 1 / 4) - 1;
       const ukShare = r.uk_arr[4] / r.total_arr[4];
       const ps = [
-        `<p><b>${esc(scName)}${st.uk ? " with UK expansion" : " without UK expansion"}.</b> ARR grows from ${m(r.total_arr[0])} in FY26 to ${m(r.total_arr[4])} in FY30 (${pct(cagr)} a year). Revenue reaches ${m(r.revenue[4])} with EBITDA margin expanding from ${pct(r.ebitda_margin[0])} to ${pct(r.ebitda_margin[4])}, as S&amp;M falls from ${pct(r.sm[0] / r.revenue[0], 0)} to ${pct(r.sm[4] / r.revenue[4], 0)} of revenue.</p>`,
-        st.uk ? `<p><b>UK expansion</b> contributes ${m(r.uk_arr[4])} of FY30 ARR (${pct(ukShare)}) for ${m(r.sm_uk.reduce((a, b) => a + b, 0))} of cumulative S&amp;M over five years. UK ARR at gross margin first covers the UK team's annual S&amp;M cost in ${(() => { const j = r.uk_arr.findIndex((v, k) => v * (r.gm[k]) > r.sm_uk[k]); return j < 0 ? "no year of the plan" : Y[j]; })()}.</p>`
-          : `<p><b>Without UK expansion</b>, FY30 ARR is ${m(r.total_arr[4])} and cumulative EBITDA over five years is ${m(r.ebitda.reduce((a, b) => a + b, 0))}.</p>`,
+        `<p><b>${esc(scName)}${st.uk ? " with EMEA expansion" : " without EMEA expansion"}.</b> ARR grows from ${m(r.total_arr[0])} in FY26 to ${m(r.total_arr[4])} in FY30 (${pct(cagr)} a year). Revenue reaches ${m(r.revenue[4])} with EBITDA margin expanding from ${pct(r.ebitda_margin[0])} to ${pct(r.ebitda_margin[4])}, as S&amp;M falls from ${pct(r.sm[0] / r.revenue[0], 0)} to ${pct(r.sm[4] / r.revenue[4], 0)} of revenue.</p>`,
+        st.uk ? `<p><b>EMEA expansion</b> contributes ${m(r.uk_arr[4])} of FY30 ARR (${pct(ukShare)}) for ${m(r.sm_uk.reduce((a, b) => a + b, 0))} of cumulative S&amp;M over five years. EMEA ARR at gross margin first covers the EMEA team's annual S&amp;M cost in ${(() => { const j = r.uk_arr.findIndex((v, k) => v * (r.gm[k]) > r.sm_uk[k]); return j < 0 ? "no year of the plan" : Y[j]; })()}.</p>`
+          : `<p><b>Without EMEA expansion</b>, FY30 ARR is ${m(r.total_arr[4])} and cumulative EBITDA over five years is ${m(r.ebitda.reduce((a, b) => a + b, 0))}.</p>`,
         `<p><b>Cash.</b> Free cash flow turns positive in ${Y[r.fcf.findIndex((v) => v > 0)] || "no year of the plan"}; ending cash reaches ${m(r.cash[4])} by FY30 with term debt unchanged. Lowest year-end cash is ${m(Math.min(...r.cash))} (${Y[r.cash.indexOf(Math.min(...r.cash))]}).</p>`,
       ];
       if (r.new_arr.some((v) => v < 0)) ps.push(`<p class="over" style="font-size:13px">Review before use: new ARR turns negative in this scenario (see model checks).</p>`);

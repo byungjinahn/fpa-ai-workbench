@@ -9,7 +9,7 @@ Interactive examples of finance workflows redesigned with AI, with the controls 
 | Workflow | What you can do | Where AI is used | Where people stay in control |
 |---|---|---|---|
 | Bookings forecast | Compare the sales call, a statistical view and the finance forecast against AOP, for this quarter and next | The LLM reads CRM notes and call transcripts to flag deal risks, and drafts the forecast commentary | The analyst keeps or dismisses each flag, makes documented adjustments, and submits for CFO review |
-| Long-range plan | Switch Base / Upside and turn UK expansion on or off; see SaaS metrics, P&L, EBITDA and cash flow for FY26–FY30 | The LLM drafts the plan summary | FP&A owns the assumptions; model checks flag results that break basic rules |
+| Long-range plan | Switch Base / Upside and turn EMEA expansion on or off; see SaaS metrics, P&L, EBITDA and cash flow for FY26–FY30 | The LLM drafts the plan summary | FP&A owns the assumptions; model checks flag results that break basic rules |
 | Variance commentary | Change the materiality rule and watch items get flagged | The LLM classifies each variance driver and drafts commentary | An analyst edits and approves every item before the pack is released |
 
 The variance and bookings data are invented. The long-range plan uses a case-study operating model: the Base case matches the source Excel model exactly. In Upside, retention above the base case adds ARR on top of sales capacity (the workbook let it replace new ARR); set `nrr_uplift_adds_arr` to `false` in `long-range/settings.json` to use the workbook logic.
