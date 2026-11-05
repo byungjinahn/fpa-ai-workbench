@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FP&amp;A AI Workflow · Byungjin Ahn</title>
+<meta name="description" content="Interactive demo of AI-augmented FP&amp;A workflows by Byungjin Ahn: bookings forecast, five-year plan, and variance commentary, with the controls behind them.">
+<meta property="og:title" content="FP&amp;A AI Workflow · Byungjin Ahn">
+<meta property="og:description" content="Interactive demo: AI-augmented bookings forecast, long-range plan and variance commentary, with human review and controls.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<!-- Page text comes from site.json; tabs come from workflows.json. Each workflow's code and data live in its own folder. -->
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow" id="siteEyebrow"></div>
+      <h1 style="margin-top:8px" id="siteTitle">FP&amp;A AI Workflow</h1>
+      <div class="author" id="siteAuthor"></div>
+      <p class="lede" id="siteLede"></p>
+      <ul class="principles" id="sitePrinciples"></ul>
+    </div>
+    <div class="notice" id="siteNotice"></div>
+  </header>
+
+  <section aria-labelledby="res-h" style="display:flex;flex-direction:column;gap:12px">
+    <h2 id="res-h"></h2>
+    <div class="results" id="siteResults"></div>
+  </section>
+
+  <section aria-labelledby="start-h" class="start">
+    <div class="start-head">
+      <h2 id="start-h"></h2>
+      <span class="muted" id="startNote"></span>
+      <a class="btn" id="siteVideo" target="_blank" rel="noopener" hidden>▶ Watch a 2-minute walkthrough</a>
+    </div>
+    <div class="tries" id="siteTries"></div>
+  </section>
+
+  <div style="display:flex;flex-direction:column;gap:12px" id="workflowsTop">
+    <h2>The workflows</h2>
+    <nav class="tabs" role="tablist" aria-label="Workflows" id="tabs"></nav>
+  </div>
+
+  <div id="panels"></div>
+
+  <section aria-labelledby="apply-h" style="display:flex;flex-direction:column;gap:12px">
+    <h2 id="apply-h"></h2>
+    <div class="apply" id="siteApply"></div>
+  </section>
+
+  <section aria-labelledby="pipe-h" style="display:flex;flex-direction:column;gap:12px">
+    <div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;justify-content:space-between">
+      <h2 id="pipe-h">Who does what in each workflow</h2>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="tag etl">Rules / ETL</span><span class="tag ai">LLM</span><span class="tag human">Human</span></div>
+    </div>
+    <div class="pipeline" id="sitePipeline"></div>
+  </section>
+
+  <footer><p id="siteFooter"></p></footer>
+</div>
+<noscript><p style="padding:16px">This demo needs JavaScript.</p></noscript>
+<script src="assets/app.js?v=2"></script>
+</body>
+</html>
