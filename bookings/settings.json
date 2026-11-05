@@ -1,0 +1,46 @@
+{
+  "company": "Fieldstone Cyber (fictional)",
+  "units": "$K, annual contract value",
+  "as_of": "Oct 7, 2026 (week 2 of 13)",
+  "current_quarter": "Q4 FY26",
+  "next_quarter": "Q1 FY27",
+  "booking_types": [
+    "New",
+    "Expansion",
+    "Renewal",
+    "Services"
+  ],
+  "ai_risk_haircut_default": 0.3,
+  "not_yet_created_k": {
+    "_note": "Bookings expected from pipeline not yet created (create-and-close), from the last 8 quarters' average.",
+    "Q4 FY26": {
+      "New": 600,
+      "Expansion": 500,
+      "Renewal": 0,
+      "Services": 200
+    },
+    "Q1 FY27": {
+      "New": 2600,
+      "Expansion": 1500,
+      "Renewal": 0,
+      "Services": 500
+    }
+  },
+  "history_note": "Conversion rates are win rates for deals open at the same point in the quarter, over the last 8 quarters.",
+  "title": "Bookings forecast: this quarter and next",
+  "description": "Three views of the same quarter: the sales managers' call, a statistical view from pipeline history, and the finance forecast that reconciles them. Compare each to the annual operating plan (AOP).",
+  "explainer": [
+    {
+      "name": "Sales call",
+      "text": "What managers expect: commit, plus upside and stretch deals. Strong on deal knowledge, but tends to run optimistic on upside and conservative on commit."
+    },
+    {
+      "name": "Statistical",
+      "text": "What history says: each open deal times the win rate for its forecast category and stage over the last 8 quarters, adjusted for aging and slipped close dates."
+    },
+    {
+      "name": "Finance forecast",
+      "text": "The number finance stands behind for the CFO and board. It starts from the statistical view, applies AI-flagged deal risks the analyst accepts, and adds documented adjustments."
+    }
+  ]
+}

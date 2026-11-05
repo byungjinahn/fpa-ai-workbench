@@ -1,0 +1,19 @@
+{
+  "title": "Controls that make the output usable",
+  "intro": "Speed only matters if leadership and audit can trust the numbers. These controls sit behind all three workflows.",
+  "cards": [
+    {"title": "Human in the loop", "text": "The LLM never publishes. Commentary, risk flags and forecasts are approved by a named analyst or manager; in the demos, the variance pack and the bookings forecast cannot be released until review is complete."},
+    {"title": "Math outside the LLM", "text": "Variances, conversion statistics and the five-year model are calculated by Power Query and Excel, not by the language model. The LLM explains, classifies and flags."},
+    {"title": "Data protection", "text": "Enterprise-licensed AI with no training on company data. PII and customer names removed before processing. Nothing sensitive goes to consumer AI tools."},
+    {"title": "Auditability", "text": "AI-assisted content is tagged. Prompt templates are version-controlled. Analyst overrides, dismissed risk flags and forecast adjustments are logged with a reason."},
+    {"title": "Model checks", "text": "Models are tied out to the source workbook, and automatic checks flag results that break basic rules, such as negative new ARR or cash falling below zero."},
+    {"title": "Accuracy tracking", "text": "Monthly review of false positives and misses, and forecast accuracy by view (sales call, statistical, finance) against actual bookings."}
+  ],
+  "whatis": [
+    {"tool": "Claude", "type": "ai", "type_label": "LLM", "job": "Classifies variance drivers, drafts commentary, reads CRM notes and call transcripts to flag deal risks, drafts plan and forecast summaries."},
+    {"tool": "Power Query", "type": "etl", "type_label": "Rules / ETL", "job": "Connects to ERP, CRM and warehouse; cleans and maps data; computes variances and historical win rates. Same input, same output."},
+    {"tool": "Excel", "type": "etl", "type_label": "Rules / model", "job": "System of record for the operating model and forecast; runs scenarios on approved assumptions."},
+    {"tool": "Power BI", "type": "etl", "type_label": "Rules / BI", "job": "Dashboards, drill-down, approved commentary and forecast-accuracy tracking."},
+    {"tool": "Analysts and managers", "type": "human", "type_label": "Human", "job": "Investigate flagged items, accept or dismiss AI flags, make documented adjustments, own the final numbers."}
+  ]
+}

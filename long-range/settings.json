@@ -1,0 +1,26 @@
+{
+  "title": "Long-range plan: FY26\u2013FY30",
+  "description": "Five-year plan built from a case-study operating model. Pick a scenario and turn UK expansion on or off; ARR, revenue, margins, EBITDA, cash flow and SaaS metrics recalculate with the same logic as the Excel model.",
+  "scenarios": [
+    {
+      "key": "base",
+      "name": "Base"
+    },
+    {
+      "key": "upside",
+      "name": "Upside"
+    }
+  ],
+  "expansion_label": "UK expansion",
+  "expansion_note": "Adds the UK sales team from sales-capacity-uk.csv (RVP, AEs, SDRs, SEs, channel, marketing). Its ARR and S&M cost flow through revenue, margins, EBITDA and cash.",
+  "reference": {
+    "scenario": "base",
+    "uk": true,
+    "label": "Base with UK (workbook base case)"
+  },
+  "tie_out": "Base with UK ties exactly to the Excel model for FY26\u2013FY30: ARR, revenue, gross profit, S&M, EBITDA, operating cash flow, ending cash and SaaS metrics.",
+  "sm_note": "S&M cost comes from the sales-capacity build (headcount \u00d7 OTE plus non-labor), as in the workbook, not from an S&M % of revenue assumption.",
+  "units_note": "$ millions",
+  "nrr_uplift_adds_arr": true,
+  "upside_note": "Upside differs from the workbook on purpose. In the workbook, sales capacity caps new plus expansion ARR, so higher retention replaced new ARR and new ARR turned negative by FY30. Here, capacity covers new ARR plus expansion at base-case retention, and retention above base adds ARR on top. Set nrr_uplift_adds_arr to false in settings.json to use the workbook logic."
+}
